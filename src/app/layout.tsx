@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@/components/Analytics";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -69,6 +70,15 @@ export const metadata: Metadata = {
   
   // Manifest
   manifest: '/manifest.json',
+  
+  // RSS Feed
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        { url: '/feed.xml', title: 'Daily Quotes Blog RSS Feed' },
+      ],
+    },
+  },
 };
 
 export default function RootLayout({
@@ -78,7 +88,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="cs">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Analytics />
+        {children}
+      </body>
     </html>
   );
 }

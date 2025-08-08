@@ -1,6 +1,8 @@
 import QuoteCard from "@/components/QuoteCard";
 import ShareButtons from "@/components/ShareButtons";
 import Monetization from "@/components/Monetization";
+import QuoteTracker from "@/components/QuoteTracker";
+import Link from "next/link";
 import { Metadata } from "next";
 
 // Dynamická metadata pro lepší SEO
@@ -258,8 +260,29 @@ export default async function HomePage() {
             animation: 'slideUp 0.8s ease-out 0.2s both'
           }}
         >
+          <QuoteTracker author={quote.author} />
           <QuoteCard quote={quote.content} author={quote.author} />
           <ShareButtons quote={quote.content} />
+          
+          {/* Blog Link */}
+          <div className="text-center mt-8">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl hover:scale-105 transition-all duration-300 group"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255,255,255,0.2)',
+              }}
+            >
+              <span className="text-purple-700 group-hover:text-purple-900 transition-colors duration-300 font-medium">
+                Přečíst inspirační články
+              </span>
+              <svg className="w-5 h-5 text-purple-600 group-hover:text-purple-800 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </main>
 
         <aside className="w-full max-w-4xl mt-12">

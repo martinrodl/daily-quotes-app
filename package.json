@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/mdx": "^15.4.6",
+    "@types/mdx": "^2.0.13",
     "@vercel/og": "^0.8.5",
     "next": "15.4.6",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
