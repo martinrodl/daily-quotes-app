@@ -2,26 +2,34 @@
 
 Moderní webová aplikace pro denní inspirativní citáty postavená na Next.js 15 s pokročilými funkcemi pro produkční nasazení.
 
-## ✨ Funkce
+## ✨ Features
 
-- 🎨 **Moderní design** s gradientním pozadím a glassmorphism efekty
-- 🔄 **ISR (Incremental Static Regeneration)** pro optimální výkon
-- 📱 **PWA podpora** s offline funkcionalitou
-- 🌐 **Open Graph obrázky** dynamicky generované
-- 🔍 **SEO optimalizované** s strukturovanými daty
-- 📊 **Health monitoring** s API status kontrolou
-- ⏰ **Cron job podpora** pro automatické aktualizace
-- 🚀 **Multi-API fallback** pro maximální spolehlivost
-- 📤 **Sociální sdílení** (Twitter, Facebook, WhatsApp)
-- 💰 **Monetizace ready** (AdSense, affiliate odkazy)
+- **Daily Quotes**: Fresh inspirational quotes with fallback API system
+- **Stunning Design**: Modern glassmorphism UI with smooth animations
+- **Smart Caching**: ISR (Incremental Static Regeneration) for optimal performance  
+- **Blog System**: Full MDX-powered blog with rich content and styling
+- **SEO Optimized**: Dynamic metadata, Open Graph, structured data, sitemap
+- **Analytics Ready**: Google Analytics integration with event tracking
+- **PWA Support**: Progressive Web App with offline capabilities
+- **RSS Feed**: Syndication for blog content
+- **Social Sharing**: Native sharing with tracking analytics
+- **Responsive**: Perfect on all devices from mobile to desktop
+- **API Monitoring**: Health check and cron job endpoints
+- **Performance**: Advanced caching and revalidation strategies
 
 ## 🛠️ Technologie
 
-- **Framework:** Next.js 15 s App Router
-- **Styling:** Tailwind CSS v4
-- **TypeScript:** Plná type safety
-- **OG Images:** @vercel/og
-- **Deployment:** Vercel ready
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15.4.6 (App Router + Turbopack)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4 with custom animations
+- **Content**: MDX for rich blog articles with remark-gfm
+- **Analytics**: Google Analytics with custom event tracking
+- **Images**: @vercel/og for dynamic Open Graph generation
+- **SEO**: Advanced metadata, sitemap, robots.txt, RSS
+- **Performance**: ISR with tag-based revalidation
+- **PWA**: Manifest and service worker ready
 
 ## 🚀 Rychlý start
 
@@ -45,33 +53,27 @@ npm run dev
 
 Aplikace bude dostupná na [http://localhost:3000](http://localhost:3000).
 
-## 📊 API Endpointy
+## � Pages & Features
 
-### Health Check
-```bash
-GET /api/health
-```
-Vrací status aplikace a dostupnost externích API.
+### Main Features
+- **🏠 Homepage** (`/`) - Daily inspirational quotes with sharing
+- **📝 Blog** (`/blog`) - Articles about mindfulness, motivation, and wisdom
+- **📊 Analytics** - Comprehensive tracking of user interactions
+- **🔗 RSS Feed** (`/feed.xml`) - Subscribe to blog updates
+- **🗺️ Sitemap** (`/sitemap.xml`) - SEO-optimized site structure
 
-### Revalidace
-```bash
-GET /api/revalidate?secret=YOUR_TOKEN&tag=quote
-POST /api/revalidate
-```
-Umožňuje manuální revalidaci cache.
+### API Endpoints
+- **🎯 Health Check** (`/api/health`) - Monitor external API status
+- **⏰ Cron Jobs** (`/api/cron`) - Scheduled maintenance and updates  
+- **🔄 Revalidation** (`/api/revalidate`) - Manual cache invalidation
+- **🖼️ OG Images** (`/api/og`) - Dynamic social media images
 
-### Cron Jobs
-```bash
-GET /api/cron?secret=YOUR_CRON_SECRET
-POST /api/cron
-```
-Automatické úkoly pro údržbu aplikace.
-
-### Open Graph obrázky
-```bash
-GET /api/og?quote=TEXT&author=AUTHOR
-```
-Dynamicky generuje OG obrázky pro social media.
+### Technical Features
+- **Fallback API System**: Quotable.io → ZenQuotes failover
+- **Advanced ISR**: Tag-based revalidation and dynamic caching
+- **MDX Blog**: Rich content with custom styling components
+- **Analytics Tracking**: Quote views, shares, and blog interactions
+- **PWA Ready**: Installable with offline capabilities
 
 ## 🔧 Konfigurace
 
