@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { revalidateTag, revalidatePath } from 'next/cache';
+import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag, revalidatePath } from "next/cache";
 
 interface RevalidationResult {
   revalidated: boolean;
@@ -14,20 +14,20 @@ interface RevalidationRequest {
 
 // Vylepšená API route pro manuální revalidaci s více možnostmi
 export async function GET(request: NextRequest) {
-  const secret = request.nextUrl.searchParams.get('secret');
-  const tag = request.nextUrl.searchParams.get('tag');
-  const path = request.nextUrl.searchParams.get('path');
+  const secret = request.nextUrl.searchParams.get("secret");
+  const tag = request.nextUrl.searchParams.get("tag");
+  const path = request.nextUrl.searchParams.get("path");
 
   // Bezpečnostní kontrola
   if (secret !== process.env.REVALIDATION_TOKEN) {
-    return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
+    return NextResponse.json({ message: "Invalid token" }, { status: 401 });
   }
 
   try {
     const result: RevalidationResult = {
       revalidated: true,
       timestamp: new Date().toISOString(),
-      actions: []
+      actions: [],
     };
 
     // Revalidace podle tagu
@@ -36,8 +36,8 @@ export async function GET(request: NextRequest) {
       result.actions.push(`Revalidated tag: ${tag}`);
     } else {
       // Výchozí revalidace všech quote tagů
-      revalidateTag('quote');
-      result.actions.push('Revalidated tag: quote');
+      revalidateTag("quote");
+      result.actions.push("Revalidated tag: quote");
     }
 
     // Revalidace podle path
@@ -46,26 +46,29 @@ export async function GET(request: NextRequest) {
       result.actions.push(`Revalidated path: ${path}`);
     } else {
       // Výchozí revalidace domovské stránky
-      revalidatePath('/');
-      result.actions.push('Revalidated path: /');
+      revalidatePath("/");
+      result.actions.push("Revalidated path: /");
     }
 
     return NextResponse.json(result);
   } catch (err) {
-    return NextResponse.json({ 
-      message: 'Error during revalidation', 
-      error: err instanceof Error ? err.message : 'Unknown error',
-      timestamp: new Date().toISOString()
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        message: "Error during revalidation",
+        error: err instanceof Error ? err.message : "Unknown error",
+        timestamp: new Date().toISOString(),
+      },
+      { status: 500 }
+    );
   }
 }
 
 // POST endpoint pro pokročilejší revalidaci
 export async function POST(request: NextRequest) {
-  const secret = request.headers.get('authorization')?.replace('Bearer ', '');
-  
+  const secret = request.headers.get("authorization")?.replace("Bearer ", "");
+
   if (secret !== process.env.REVALIDATION_TOKEN) {
-    return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
+    return NextResponse.json({ message: "Invalid token" }, { status: 401 });
   }
 
   try {
@@ -75,7 +78,7 @@ export async function POST(request: NextRequest) {
     const result: RevalidationResult = {
       revalidated: true,
       timestamp: new Date().toISOString(),
-      actions: []
+      actions: [],
     };
 
     // Revalidace více tagů
@@ -92,10 +95,13 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(result);
   } catch (err) {
-    return NextResponse.json({ 
-      message: 'Error during batch revalidation', 
-      error: err instanceof Error ? err.message : 'Unknown error',
-      timestamp: new Date().toISOString()
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        message: "Error during batch revalidation",
+        error: err instanceof Error ? err.message : "Unknown error",
+        timestamp: new Date().toISOString(),
+      },
+      { status: 500 }
+    );
   }
 }

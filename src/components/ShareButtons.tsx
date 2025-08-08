@@ -19,7 +19,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ quote }) => {
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(`"${quote}" - ${pageUrl}`);
-      trackShare('copy');
+      trackShare("copy");
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
@@ -27,7 +27,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ quote }) => {
 
   const handleShare = (platform: string, url: string) => {
     trackShare(platform);
-    window.open(url, '_blank', 'width=600,height=400');
+    window.open(url, "_blank", "width=600,height=400");
   };
 
   return (
@@ -42,7 +42,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ quote }) => {
       <div className="flex flex-wrap justify-center gap-4">
         {/* Twitter */}
         <button
-          onClick={() => handleShare('twitter', twitterShareUrl)}
+          onClick={() => handleShare("twitter", twitterShareUrl)}
           className="group flex items-center space-x-3 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -53,7 +53,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ quote }) => {
 
         {/* Facebook */}
         <button
-          onClick={() => handleShare('facebook', facebookShareUrl)}
+          onClick={() => handleShare("facebook", facebookShareUrl)}
           className="group flex items-center space-x-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ quote }) => {
 
         {/* WhatsApp */}
         <button
-          onClick={() => handleShare('whatsapp', whatsappShareUrl)}
+          onClick={() => handleShare("whatsapp", whatsappShareUrl)}
           className="group flex items-center space-x-3 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

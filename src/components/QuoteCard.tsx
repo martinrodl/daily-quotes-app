@@ -9,34 +9,34 @@ const QuoteCard: React.FC<QuoteCardProps> = ({ quote, author }) => {
   return (
     <div className="group relative">
       {/* Gradient background blur effect */}
-      <div 
+      <div
         className="absolute rounded-2xl opacity-25 transition-opacity duration-1000 group-hover:opacity-40"
         style={{
-          top: '-2px',
-          right: '-2px', 
-          bottom: '-2px',
-          left: '-2px',
-          background: 'linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)',
-          filter: 'blur(8px)'
+          top: "-2px",
+          right: "-2px",
+          bottom: "-2px",
+          left: "-2px",
+          background: "linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)",
+          filter: "blur(8px)",
         }}
       ></div>
 
       {/* Main card */}
-      <div 
+      <div
         className="relative rounded-2xl p-8 md:p-12 max-w-3xl mx-auto text-center border transition-all duration-500 transform hover:-translate-y-1 hover:shadow-2xl"
         style={{
-          background: 'rgba(255, 255, 255, 0.9)',
-          backdropFilter: 'blur(10px)',
-          borderColor: 'rgba(255, 255, 255, 0.2)',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+          background: "rgba(255, 255, 255, 0.9)",
+          backdropFilter: "blur(10px)",
+          borderColor: "rgba(255, 255, 255, 0.2)",
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         }}
       >
         {/* Quote icon */}
         <div className="flex justify-center mb-6">
-          <div 
+          <div
             className="rounded-full p-3 shadow-lg"
             style={{
-              background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)'
+              background: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
             }}
           >
             <svg
@@ -51,16 +51,16 @@ const QuoteCard: React.FC<QuoteCardProps> = ({ quote, author }) => {
 
         {/* Quote text */}
         <blockquote className="text-xl md:text-3xl lg:text-4xl font-light text-gray-800 leading-relaxed mb-8 italic">
-          <span 
+          <span
             className="text-4xl md:text-5xl leading-none"
-            style={{ color: '#3b82f6' }}
+            style={{ color: "#3b82f6" }}
           >
             &ldquo;
           </span>
           <span className="relative z-10">{quote}</span>
-          <span 
+          <span
             className="text-4xl md:text-5xl leading-none"
-            style={{ color: '#3b82f6' }}
+            style={{ color: "#3b82f6" }}
           >
             &rdquo;
           </span>
@@ -68,58 +68,60 @@ const QuoteCard: React.FC<QuoteCardProps> = ({ quote, author }) => {
 
         {/* Author */}
         <div className="flex items-center justify-center space-x-3">
-          <div 
+          <div
             className="h-px flex-1"
             style={{
-              background: 'linear-gradient(to right, transparent, #d1d5db, transparent)'
+              background:
+                "linear-gradient(to right, transparent, #d1d5db, transparent)",
             }}
           ></div>
-          <cite 
+          <cite
             className="text-lg md:text-xl font-semibold not-italic"
             style={{
-              background: 'linear-gradient(135deg, #1976d2, #7b1fa2)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              background: "linear-gradient(135deg, #1976d2, #7b1fa2)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
             }}
           >
             {author}
           </cite>
-          <div 
+          <div
             className="h-px flex-1"
             style={{
-              background: 'linear-gradient(to right, transparent, #d1d5db, transparent)'
+              background:
+                "linear-gradient(to right, transparent, #d1d5db, transparent)",
             }}
           ></div>
         </div>
 
         {/* Decorative elements */}
-        <div 
+        <div
           className="absolute top-4 left-4 w-8 h-8 rounded-tl-lg opacity-50"
-          style={{ 
-            borderTop: '2px solid #93c5fd',
-            borderLeft: '2px solid #93c5fd'
+          style={{
+            borderTop: "2px solid #93c5fd",
+            borderLeft: "2px solid #93c5fd",
           }}
         ></div>
-        <div 
+        <div
           className="absolute top-4 right-4 w-8 h-8 rounded-tr-lg opacity-50"
-          style={{ 
-            borderTop: '2px solid #c4b5fd',
-            borderRight: '2px solid #c4b5fd'
+          style={{
+            borderTop: "2px solid #c4b5fd",
+            borderRight: "2px solid #c4b5fd",
           }}
         ></div>
-        <div 
+        <div
           className="absolute bottom-4 left-4 w-8 h-8 rounded-bl-lg opacity-50"
-          style={{ 
-            borderBottom: '2px solid #93c5fd',
-            borderLeft: '2px solid #93c5fd'
+          style={{
+            borderBottom: "2px solid #93c5fd",
+            borderLeft: "2px solid #93c5fd",
           }}
         ></div>
-        <div 
+        <div
           className="absolute bottom-4 right-4 w-8 h-8 rounded-br-lg opacity-50"
-          style={{ 
-            borderBottom: '2px solid #c4b5fd',
-            borderRight: '2px solid #c4b5fd'
+          style={{
+            borderBottom: "2px solid #c4b5fd",
+            borderRight: "2px solid #c4b5fd",
           }}
         ></div>
       </div>
